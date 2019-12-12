@@ -1,0 +1,4 @@
+{
+    "zone": ["required"],
+    "address": ["required"]
+}

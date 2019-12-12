@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css?family=Poiret+One&display=swap");
+.roundSidebar {
+  background-color: #fefefe !important;
+  border-radius: 0px 20px 20px 0px;
+  border-right: 3px solid #007777 !important;
+}
+.roundSidebarLeft {
+  background-color: #fefefedb !important;
+  border-radius: 20px 0px 0px 20px;
+  border-right: 3px solid #007777 !important;
+  overflow: auto;
+}
+.fa,
+a {
+  color: #007777;
+  cursor: pointer;
+}
+@media only screen and (max-width: 600px) {
+  .appContainer {
+    padding: 0 !important;
+    margin: 1rem 0rem !important;
+  }
+  .appContainer > div {
+    padding: 0 !important;
+  }
+}
+* {
+  transition: max-width 0.8s;
+}

@@ -1,0 +1,6 @@
+{
+    "houseID": ["required"],
+    "type": ["required"],
+    "paymentDate": ["required"],
+    "financeID": ["required"]
+}

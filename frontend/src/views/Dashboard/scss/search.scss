@@ -1,0 +1,19 @@
+.searchMenu {
+  padding: 3rem;
+  .icon {
+    .fa {
+      font-size: 1.8rem;
+      padding: 1rem;
+      background: white;
+      border-radius: 100%;
+      width: 2.5rem;
+      height: 1.9rem;
+      text-align: center;
+      display: block;
+      margin: auto;
+    }
+  }
+  .name {
+    text-align: center;
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.8e4c3a2f.chunk.css",
+    "main.js": "/static/js/main.942a2e1f.chunk.js",
+    "main.js.map": "/static/js/main.942a2e1f.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.1a0ec8dd.js",
+    "runtime-main.js.map": "/static/js/runtime-main.1a0ec8dd.js.map",
+    "static/css/2.d0176e96.chunk.css": "/static/css/2.d0176e96.chunk.css",
+    "static/js/2.bc59aca3.chunk.js": "/static/js/2.bc59aca3.chunk.js",
+    "static/js/2.bc59aca3.chunk.js.map": "/static/js/2.bc59aca3.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.f2f0a12d130d019bd8981793484e1975.js": "/precache-manifest.f2f0a12d130d019bd8981793484e1975.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.d0176e96.chunk.css.map": "/static/css/2.d0176e96.chunk.css.map",
+    "static/css/main.8e4c3a2f.chunk.css.map": "/static/css/main.8e4c3a2f.chunk.css.map",
+    "static/media/accessDenied.mp3": "/static/media/accessDenied.c09612c0.mp3",
+    "static/media/all.min.scss": "/static/media/fa-solid-900.ff8d9f8a.ttf",
+    "static/media/favicon.png": "/static/media/favicon.b4102183.png",
+    "static/media/login.scss": "/static/media/forest.408ed230.jpg",
+    "static/media/help.mp3": "/static/media/help.301e951b.mp3",
+    "static/media/sidebar-2.jpg": "/static/media/sidebar-2.310509c9.jpg",
+    "static/media/user-silhouette.svg": "/static/media/user-silhouette.56902ef6.svg",
+    "static/media/validAccess.mp3": "/static/media/validAccess.61d3e43c.mp3",
+    "static/media/wait.mp3": "/static/media/wait.ae3241fc.mp3"
+  }
+}

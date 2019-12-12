@@ -1,0 +1,19 @@
+.table {
+    margin:0 auto;
+    .rxRow {
+        display:flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        width: 100%;
+        .cell {
+            flex-grow: 1;
+            width: 10%;
+        }
+    }
+    .title {
+        display: none;
+    }
+    .rxRow:first-child .title{
+        display: block;
+    }
+}

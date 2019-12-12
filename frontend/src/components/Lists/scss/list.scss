@@ -1,0 +1,23 @@
+.verticalTable {
+    width: 80% !important;
+    margin: auto;
+    h5 {
+        margin: 3px;
+        padding-left: 10px;
+        font-size: 14px;
+    }
+    .content {
+        background: #fcfcfc;
+        color: #555;
+        padding: 6px;
+        box-shadow: inset 0px 3px 2px #ccc;
+        text-align: center;
+    }
+    .image {
+        width: 50% !important;
+        height: 200px !important;
+        border-radius: 0px !important;
+        margin: 0 auto;
+        display: block;
+    }
+}

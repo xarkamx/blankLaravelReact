@@ -1,0 +1,93 @@
+.genericInput {
+    display: flex;
+    flex-direction: column-reverse;
+    height: 57px;
+    position: relative;
+    input {
+        height: 0;
+        padding: 0;
+        display: block;
+        border-top: 0;
+        border-left: 0;
+        background: rgba(0, 0, 0, 0);
+        border-bottom: solid 2px #888 !important;
+    }
+    label {
+        display: inline-block;
+        text-align: left !important;
+        cursor: text;
+        color: rgba(0, 0, 0, 0.54);
+        font-size: 1rem;
+        font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+        line-height: 1;
+    }
+    input:focus,
+    input:not(:placeholder-shown) {
+        height: 35px !important;
+        padding: 5px !important;
+    }
+    input:focus {
+        border-bottom: solid 2px blue !important;
+    }
+
+    input:focus ~ label {
+        font-size: 14px;
+        color: blue;
+    }
+    input:last-child {
+        order: -1;
+    }
+    input:invalid {
+        box-shadow: none;
+        border-bottom: solid 2px red;
+    }
+    * {
+        transition: 0.5s ease;
+    }
+}
+.form-group {
+    select {
+        border-top: 0;
+        border-left: 0;
+    }
+}
+.form-check {
+    input {
+        margin: 5px;
+    }
+    label {
+        line-height: 57px;
+    }
+    display: flex;
+    height: 57px;
+    border-bottom: 1px solid #eee;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.lateralForm {
+    legend {
+        margin-right: -15px;
+        margin-left: -15px;
+        margin-top: 30px;
+    }
+}
+.selector {
+    margin: 36px 0 27px 0;
+    input {
+        pointer-events: none;
+    }
+    .css-vj8t7z,
+    .css-10nd86i,
+    .css-2o5izw,
+    .css-bl6clz {
+        background: #00000000;
+        border-radius: 0;
+        border: none;
+        border-bottom: 0.1px solid #bbb;
+    }
+    .css-2o5izw:hover {
+        border-radius: 0;
+        border: none !important;
+        border-bottom: 1px solid;
+    }
+}

@@ -1,0 +1,5 @@
+{
+    "alias": ["required"],
+    "url": ["required"],
+    "cmd": ["required"]
+}

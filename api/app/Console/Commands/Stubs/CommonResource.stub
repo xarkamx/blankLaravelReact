@@ -1,0 +1,18 @@
+<?php
+namespace App\Common\CommonName;
+use App\Common\CommonName\CommonNameTransaction;
+
+class CommonNameRepo
+{
+    public $id;
+    private $transaction;
+    public function __construct($id)
+    {
+        $this -> id = $id;
+        $this -> transaction = new CommonNameTransaction();
+    }
+    private function _getData()
+    {
+        return $this->transaction->show($this->id);
+    }
+}

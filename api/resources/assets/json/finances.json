@@ -1,0 +1,8 @@
+{
+    "description": ["required"],
+    "conceptID": ["required"],
+    "rfc": ["required"],
+    "amount": ["required"],
+    "paymentMethod": ["required"],
+    "employeeID": ["required"]
+}

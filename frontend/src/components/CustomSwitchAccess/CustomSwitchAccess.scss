@@ -1,0 +1,5 @@
+.customSwitch {
+  input:checked:parent .primary span {
+    color: #007733 !important;
+  }
+}

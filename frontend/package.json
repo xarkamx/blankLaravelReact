@@ -1,0 +1,64 @@
+{
+  "name": "blank",
+  "description": "Frontend el manantial",
+  "private": false,
+  "main": "dist/index.js",
+  "dependencies": {
+    "@material-ui/core": "3.9.2",
+    "@material-ui/icons": "3.0.2",
+    "@types/googlemaps": "3.30.16",
+    "@types/markerclustererplus": "2.1.33",
+    "ajv": "^6.10.2",
+    "chartist": "0.11.0",
+    "classnames": "2.2.6",
+    "dotenv": "^6.2.0",
+    "i": "^0.3.6",
+    "install-prompt-banner": "0.0.6",
+    "node-sass": "^4.12.0",
+    "npm-run-all": "4.1.5",
+    "perfect-scrollbar": "1.4.0",
+    "qrcode-generator-es6": "^1.1.4",
+    "react": "16.8.3",
+    "react-chartist": "0.13.3",
+    "react-dom": "16.8.3",
+    "react-google-maps": "9.4.5",
+    "react-input-mask": "^2.0.4",
+    "react-qr-reader": "^2.2.1",
+    "react-router-dom": "4.3.1",
+    "react-scripts": "^3.0.1",
+    "react-select": "^2.4.4",
+    "react-swipeable-views": "0.13.1",
+    "sweetalert": "^2.1.2"
+  },
+  "scripts": {
+    "start": "react-scripts.cmd start",
+    "build": "react-scripts.cmd build && cp -rlf build/* ../",
+    "test": "node_modules/.bin/cypress open",
+    "eject": "react-scripts eject",
+    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",
+    "lint:check": "eslint . --ext=js,jsx;  exit 0",
+    "lint:fix": "eslint . --ext=js,jsx --fix;  exit 0",
+    "build-package": "babel src --out-dir dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/creativetimofficial/material-dashboard-react.git"
+  },
+  "keywords": [],
+  "author": "Creative Tim <hello@creative-tim.com> (https://www.creative-tim.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/creativetimofficial/material-dashboard-react/issues"
+  },
+  "homepage": "http://elmanantialapp.com/",
+  "optionalDependencies": {
+    "prettier": "1.16.4"
+  },
+  "devDependencies": {},
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

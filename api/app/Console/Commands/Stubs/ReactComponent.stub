@@ -1,0 +1,9 @@
+import React, { Component } from 'react';
+export class ReactName extends Component {
+    constructor(props) {
+        super(props);
+    }
+    render() {
+        return (<h3>ReactName works!!</h3>);
+    }
+}

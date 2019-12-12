@@ -1,0 +1,7 @@
+{
+    "code": ["required"],
+    "ownerID": ["required"],
+    "residentID": ["required"],
+    "areaM2": ["required"],
+    "landUse": ["required"]
+}

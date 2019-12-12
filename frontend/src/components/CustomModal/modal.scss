@@ -1,0 +1,42 @@
+.modalContainer {
+    overflow: auto;
+}
+.modal {
+    margin: 0;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    -ms-transform: translate(-50%, 0%);
+    transform: translate(-50%, 0%);
+
+    > div,
+    > form {
+        align-content: center;
+    }
+    .closeModal {
+        position: absolute;
+        top: 0;
+        left: 97% !important;
+        z-index: 99;
+    }
+    .prompt {
+        background: white;
+        border-radius: 9px;
+        padding: 5px;
+        overflow: hidden;
+        .promptInput {
+            margin: 0;
+        }
+        .buttons {
+            float: right;
+        }
+    }
+}
+@media only screen and (max-width: 768px) {
+    .modal {
+        width: 100% !important;
+        .closeModal {
+            left: 90vw !important;
+        }
+    }
+}

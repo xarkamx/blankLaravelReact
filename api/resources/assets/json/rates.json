@@ -1,0 +1,5 @@
+{
+    "rate": ["required"],
+    "type": ["required"],
+    "alias": ["required"]
+}

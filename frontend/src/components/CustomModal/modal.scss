@@ -1,42 +1,51 @@
 .modalContainer {
-    overflow: auto;
+  overflow: auto;
 }
 .modal {
-    margin: 0;
-    position: absolute;
-    top: 0%;
-    left: 50%;
-    -ms-transform: translate(-50%, 0%);
-    transform: translate(-50%, 0%);
+  margin: 0;
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  -ms-transform: translate(-50%, 0%);
+  transform: translate(-50%, 0%);
 
-    > div,
-    > form {
-        align-content: center;
+  > div,
+  > form {
+    align-content: center;
+  }
+  .closeModal {
+    position: absolute;
+    top: 0;
+    left: 97% !important;
+    z-index: 99;
+  }
+  .prompt {
+    background: white;
+    border-radius: 9px;
+    padding: 5px;
+    overflow: hidden;
+    .promptInput {
+      margin: 0;
     }
-    .closeModal {
-        position: absolute;
-        top: 0;
-        left: 97% !important;
-        z-index: 99;
+    .buttons {
+      float: right;
     }
-    .prompt {
-        background: white;
-        border-radius: 9px;
-        padding: 5px;
-        overflow: hidden;
-        .promptInput {
-            margin: 0;
-        }
-        .buttons {
-            float: right;
-        }
-    }
+  }
 }
 @media only screen and (max-width: 768px) {
-    .modal {
-        width: 100% !important;
-        .closeModal {
-            left: 90vw !important;
-        }
+  .modal {
+    width: 100% !important;
+    .closeModal {
+      left: 90vw !important;
     }
+  }
+}
+.fullscreenModal {
+  position: fixed;
+  padding: 3vw;
+  margin: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }

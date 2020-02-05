@@ -16,30 +16,22 @@ export class MainMenu extends Component {
     openMenu: ""
   };
   printList({ prop, key }) {
-    const { activeRoute, color, classes } = this.props;
+    const { activeRoute, color } = this.props;
     let openMenu = this.state.openMenu;
-    var listItemClasses;
 
-    listItemClasses = classNames({
-      [" " + classes[color]]: activeRoute(prop.path)
-    });
-    const whiteFontClasses = classNames({
-      [" " + classes.whiteFont]: activeRoute(prop.path)
-    });
     let itsOpen = openMenu == prop.sidebarName;
     const iconName = itsOpen ? "fa-chevron-up" : "fa-chevron-down";
     return (
       <ListItem
         key={key}
         button
-        className={classes.itemLink + listItemClasses}
         onClick={() => {
           this.setState({
             openMenu: itsOpen ? "" : prop.sidebarName
           });
         }}
       >
-        <ListItemIcon className={classes.itemIcon + whiteFontClasses}>
+        <ListItemIcon>
           {typeof prop.icon === "string" ? (
             <FontIcon iconName={`fa-${prop.icon}`} />
           ) : (
@@ -48,9 +40,7 @@ export class MainMenu extends Component {
         </ListItemIcon>
         <GridContainer>
           <GridItem xs={8}>
-            <span className={classes.itemText + whiteFontClasses}>
-              {prop.sidebarName}
-            </span>
+            <span>{prop.sidebarName}</span>
           </GridItem>
           {prop.parent ? (
             <GridItem xs={1}>
@@ -83,12 +73,7 @@ export class MainMenu extends Component {
       let path = prop.path.replace(/:[a-z]+/g, "");
       if (!prop.parent) {
         return (
-          <NavLink
-            to={path}
-            className={activePro + classes.item}
-            activeClassName="active"
-            key={key}
-          >
+          <NavLink to={path} activeClassName="active" key={key}>
             {this.printList({ prop, key })}
           </NavLink>
         );
@@ -99,8 +84,8 @@ export class MainMenu extends Component {
   }
 
   render = () => {
-    const { classes, routes } = this.props;
+    const { routes } = this.props;
     const mainMenu = routes.filter(item => item.childOf == null);
-    return <List className={classes.list}>{this.printMenu(mainMenu)}</List>;
+    return <List>{this.printMenu(mainMenu)}</List>;
   };
 }

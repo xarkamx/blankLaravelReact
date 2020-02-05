@@ -6,13 +6,16 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import "perfect-scrollbar/css/perfect-scrollbar.css";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
-// core components
-import Header from "components/Header/Header.jsx";
 import Footer from "components/Footer/Footer.jsx";
 
 import { DashboardRoutes } from "routes/dashboard.jsx";
 
 import dashboardStyle from "assets/jss/material-dashboard-react/layouts/dashboardStyle.jsx";
+import "assets/scss/main.scss";
+
+import { MainMenu } from "./../../components/Sidebar/MainMenu";
+import { BurguerButton } from "../../components/CustomButtons/BurguerButton";
+import { MainContainer } from "./MainContainer";
 
 class App extends React.Component {
   constructor(props) {
@@ -74,19 +77,22 @@ class App extends React.Component {
 
   render() {
     const { classes, ...rest } = this.props;
+
+    const routes = new DashboardRoutes().get();
     return (
-      <div className={classes.wrapper}>
+      <div>
         <main>
-          <div className={classes.mainPanel} ref="mainPanel">
-            {/* On the /maps route we want the map to be on full screen - this is not possible if the content and conatiner classes are present because they have some paddings which would make the map smaller */}
-            {this.getRoute() ? (
-              <div className={classes.content + " appContainer"}>
-                <div className={classes.container}>{this.handleRoutes()}</div>
-              </div>
-            ) : (
-              <div className={classes.map}>{this.handleRoutes()}</div>
-            )}
-            {this.getRoute() ? <Footer /> : null}
+          <div ref="mainPanel">
+            <MainContainer routes={routes}>
+              {this.getRoute() ? (
+                <div className={classes.content + " appContainer"}>
+                  <div className={classes.container}>{this.handleRoutes()}</div>
+                </div>
+              ) : (
+                <div className={classes.map}>{this.handleRoutes()}</div>
+              )}
+              {this.getRoute() ? <Footer /> : null}
+            </MainContainer>
           </div>
         </main>
       </div>

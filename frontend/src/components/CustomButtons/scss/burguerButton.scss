@@ -1,0 +1,27 @@
+.burguerButton {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+  div {
+    height: 5px;
+    width: 100%;
+    display: block;
+    margin: 5px;
+    background: #eee;
+    box-shadow: inset 1px 1px 2px #000;
+    transition: 0.5s;
+  }
+  &:hover div:first-child,
+  &.active div:first-child {
+    transform: translateY(10px) rotateZ(135deg);
+  }
+  &:hover :last-child,
+  &.active :last-child {
+    transform: translateY(-10px) rotateZ(45deg);
+  }
+  &.active div:nth-child(2) {
+    opacity: 0;
+  }
+}

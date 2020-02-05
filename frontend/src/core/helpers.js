@@ -434,3 +434,24 @@ export function isObjectEmpty(obj) {
  *
  * @param string url
  */
+
+/**
+ * Genera una secuencia en base al limite asignado.
+ * @param int limit
+ * @param function iteration
+ */
+export function secuence(limit, iteration = null) {
+  let result = [];
+  for (let index = 0; index <= limit; index++) {
+    result.push(optionalFn(iteration)(index, limit) || index);
+  }
+  return result;
+}
+/**
+ * añade un 0 al inicio del numero
+ * @param int places
+ * @param number number
+ */
+export function numberPadStart(places, number) {
+  return String(number).padStart(places, "0");
+}

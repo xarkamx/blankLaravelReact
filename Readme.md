@@ -62,11 +62,11 @@ A continuación se listan las reglas y normas para trabajar. Por favor seguirlas
 
 6. Los componentes con interacción compleja (con AJAX) deberán tener el sufijo 'Container'.
 
-7. Ubicar los componentes de uso general en **_resources/assets/js/components/renders_**.
+7. Ubicar los componentes de uso general en **frontend/components/renders\_**.
 
 8. Ubicar los componentes para usos específicos en \***\*/resources/assets/js/components/especialidad (ejemplo Accesos)\*\***.
 
-9. Ubicar los scripts que no afecten directamente alguna vista en **_resources/assets/js/Common_**.
+9. Ubicar los scripts que no afecten directamente alguna vista en **frontend/Common\_**.
 
 ## Git
 
@@ -89,22 +89,6 @@ A continuación se listan las reglas y normas para trabajar. Por favor seguirlas
 1. Deberas de correr las pruebas unitarias antes, durante y despues de terminar la tarea.
 1. Toda tarea que no pase (o no tenga) las pruebas unitarias sera rechazada.
 
-## General
-
-1. No está permitido apartar tareas con más de **24** horas de antelación.
-
-2. Las tareas no deberán de demorarse más de **48** horas para su elaboración.
-
-3. Al momento de terminar una tarea procurar añadir un archivo **.md** con una breve descripción del funcionamiento del código que ha agregado.
-
-4. En caso de ser trabajador externo, al seleccionar una tarea mandar por Slack su cotización por realizar dicha tarea y cuantas horas planea asignarle a dicha tarea.
-
-5. Cada tarea se pagará en una sola exhibición luego de pasar la fase de **verificación**.
-
-6. No se pagaran tareas incompletas.
-
-7. Una vez que una tarea esta siendo trabajada, no se pueden cambiar los requisitos. Se le pagará de nuevo si el trabajo se tiene que repetir por cambios en los requerimientos (Los cambios que deban hacerse por petición del cliente cuentan como una tarea aparte).
-
 # Quickstart Laravel
 
 En la consola, dentro de el folder api ejecutar:
@@ -126,7 +110,10 @@ Una vez que termine la instalacion crear un archivo `.env` apuntanto a la url de
 
 ```
 NODE_PATH=./src
-REACT_APP_API_URL = http://127.0.0.1:8000
+REACT_APP_API_URL = https://[your-remote-server].com
+REACT_APP_LOCAL_URL = http://127.0.0.1:8000
+REACT_APP_LANG = es
+HTTPS= false
 ```
 
 \*\* Despues de cada pull hacer npm update

@@ -10,6 +10,7 @@ import GridContainer from "components/Grid/GridContainer";
 import GridItem from "components/Grid/GridItem.jsx";
 import "./scss/headers.scss";
 import { SearchInput } from "../../views/Dashboard/SearchInput";
+import { grayColor } from "../../assets/jss/material-dashboard-react";
 
 class HeaderLinks extends React.Component {
   state = {
@@ -51,7 +52,7 @@ class HeaderLinks extends React.Component {
             >
               <FontIcon
                 iconName="fa-sign-out-alt"
-                style={{ color: "#007777" }}
+                style={{ color: grayColor }}
               />
             </IconButton>
           </Tooltip>

@@ -30,29 +30,51 @@ class HeaderLinks extends React.Component {
   render() {
     return (
       <main className={"customHeader"}>
-        <GridContainer>
-          <GridItem xs={12} md={8}>
-            <SearchInput />
-          </GridItem>
-          <GridItem xs={12} md={3} style={{ textAlign: "center" }}>
-            <Tooltip title="Salir">
-              <IconButton
-                style={{ marginTop: "2.2rem" }}
-                onClick={() => {
-                  localStorage.removeItem(btoa("token"));
-                }}
-              >
-                <FontIcon
-                  iconName="fa-sign-out-alt"
-                  style={{ color: "#007777" }}
-                />
-              </IconButton>
-            </Tooltip>
-          </GridItem>
-        </GridContainer>
+        <ToolBar>
+          <>{this.props.extraButtons}</>
+          <strong
+            style={{
+              padding: "12px",
+              fontSize: "1.3rem",
+              textTransform: "full-width capitalize",
+              display: "block"
+            }}
+          >
+            {this.props.name}
+          </strong>
+          <SearchInput />
+          <Tooltip title="Salir">
+            <IconButton
+              onClick={() => {
+                localStorage.removeItem(btoa("token"));
+              }}
+            >
+              <FontIcon
+                iconName="fa-sign-out-alt"
+                style={{ color: "#007777" }}
+              />
+            </IconButton>
+          </Tooltip>
+        </ToolBar>
       </main>
     );
   }
+}
+function ToolBar({ children, sizes = [2, 8, 1, 1] }) {
+  return (
+    <GridContainer>
+      {children.map((item, key) => {
+        if (!sizes[key]) {
+          sizes[key] = 1;
+        }
+        return (
+          <GridItem xs={sizes[key]} key={key}>
+            {item}
+          </GridItem>
+        );
+      })}
+    </GridContainer>
+  );
 }
 
 export default withStyles(headerLinksStyle)(HeaderLinks);

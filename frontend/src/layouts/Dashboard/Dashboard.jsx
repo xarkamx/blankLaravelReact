@@ -16,6 +16,7 @@ import "assets/scss/main.scss";
 import { MainMenu } from "./../../components/Sidebar/MainMenu";
 import { BurguerButton } from "../../components/CustomButtons/BurguerButton";
 import { MainContainer } from "./MainContainer";
+import Header from "../../components/Header/Header";
 
 class App extends React.Component {
   constructor(props) {
@@ -50,7 +51,7 @@ class App extends React.Component {
     this.setState({ mobileOpen: !this.state.mobileOpen });
   };
   getRoute() {
-    return this.props.location.pathname !== "/maps";
+    return this.props.location.pathname;
   }
   resizeFunction() {
     if (window.innerWidth >= 960) {
@@ -83,15 +84,11 @@ class App extends React.Component {
       <div>
         <main>
           <div ref="mainPanel">
-            <MainContainer routes={routes}>
-              {this.getRoute() ? (
-                <div className={classes.content + " appContainer"}>
-                  <div className={classes.container}>{this.handleRoutes()}</div>
-                </div>
-              ) : (
-                <div className={classes.map}>{this.handleRoutes()}</div>
-              )}
-              {this.getRoute() ? <Footer /> : null}
+            <MainContainer routes={routes} path={this.getRoute()}>
+              <div className={classes.content + " appContainer"}>
+                <div className={classes.container}>{this.handleRoutes()}</div>
+              </div>
+              <Footer />
             </MainContainer>
           </div>
         </main>

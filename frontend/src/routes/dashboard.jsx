@@ -28,7 +28,7 @@ export class DashboardRoutes {
       path: "/sandbox",
       sidebarName: "sandbox",
       navbarName: "sandbox",
-      icon: Dashboard,
+      icon: "home",
       component: Sandbox
     }
   ];

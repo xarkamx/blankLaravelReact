@@ -17,3 +17,42 @@
     text-align: center;
   }
 }
+.searchInput {
+  input {
+    font-size: 3rem;
+    color: white;
+    text-align: center;
+  }
+}
+.fullscreenModal {
+  animation: fadein 2s;
+  background-color: rgba(0, 0, 0, 0.9);
+  label {
+    color: #eee;
+    font-size: 2rem;
+  }
+  .searchbox {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 16vh;
+    width: 50%;
+  }
+  .searching {
+    position: relative !important;
+  }
+}
+.searchMenu {
+  animation: fadein 1s;
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

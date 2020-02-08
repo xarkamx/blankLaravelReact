@@ -20,6 +20,7 @@
     "qrcode-generator-es6": "^1.1.4",
     "react": "16.8.3",
     "react-chartist": "0.13.3",
+    "react-color": "^2.18.0",
     "react-dom": "16.8.3",
     "react-google-maps": "9.4.5",
     "react-input-mask": "^2.0.4",

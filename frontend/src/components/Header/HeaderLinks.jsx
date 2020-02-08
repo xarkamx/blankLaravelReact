@@ -30,7 +30,7 @@ class HeaderLinks extends React.Component {
 
   render() {
     return (
-      <main className={"customHeader"}>
+      <div className={"customHeader"}>
         <ToolBar>
           <>{this.props.extraButtons}</>
           <strong
@@ -57,7 +57,7 @@ class HeaderLinks extends React.Component {
             </IconButton>
           </Tooltip>
         </ToolBar>
-      </main>
+      </div>
     );
   }
 }

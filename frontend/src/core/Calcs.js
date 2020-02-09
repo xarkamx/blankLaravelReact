@@ -1,5 +1,5 @@
 import { numberPadStart } from "./helpers";
-
+/* eslint eqeqeq: 0*/
 export class Calcs {
   getCenter = dom => {
     const pos = dom.getBoundingClientRect();
@@ -55,6 +55,8 @@ export class Time {
         time = time % 24;
         time = time * 3600 * 1000;
         break;
+      default:
+        time = 0;
     }
     this.miliseconds += time;
     return this;

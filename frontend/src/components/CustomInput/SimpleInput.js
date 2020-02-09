@@ -30,8 +30,7 @@ export function SimpleInput({
         labelText={title}
         value={val}
         onChange={ev => {
-          let value = optionalFn(onChange)(ev) || ev.target.value;
-          //setValue(upperCase ? value.toUpperCase() : value);
+          optionalFn(onChange)(ev);
         }}
         formControlProps={{
           fullWidth: true
@@ -43,8 +42,7 @@ export function SimpleInput({
             if (ev.target.checkValidity()) {
               setError(0);
 
-              let value = optionalFn(onBlur)(ev) || ev.target.value;
-              //setValue(upperCase ? value.toUpperCase() : value);
+              optionalFn(onBlur)(ev);
               return true;
             }
             setError(1);

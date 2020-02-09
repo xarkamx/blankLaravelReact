@@ -55,7 +55,7 @@ const defaultFont = {
 
 const {
   primaryColor,
-  secundaryColor,
+  secondaryColor,
   warningColor,
   dangerColor,
   successColor,
@@ -100,7 +100,7 @@ const infoCardHeader = {
   ...infoBoxShadow
 };
 const primaryCardHeader = {
-  background: `linear-gradient(60deg, ${secundaryColor}, ${primaryColor})`,
+  background: `linear-gradient(60deg, ${secondaryColor}, ${primaryColor})`,
   ...primaryBoxShadow
 };
 const roseCardHeader = {

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import classNames from "classnames";
 import { NavLink } from "react-router-dom";
 // @material-ui/core components
 import List from "@material-ui/core/List";
@@ -16,7 +15,6 @@ export class MainMenu extends Component {
     openMenu: ""
   };
   printList({ prop, key }) {
-    const { activeRoute, color } = this.props;
     let openMenu = this.state.openMenu;
 
     let itsOpen = openMenu == prop.sidebarName;
@@ -61,14 +59,12 @@ export class MainMenu extends Component {
     return this.printMenu(child);
   }
   printMenu(routes) {
-    const { classes } = this.props;
     return routes.map((prop, key) => {
       if (prop.redirect) return null;
       if (prop.hidden) return null;
       if (!prop.path) {
         prop.path = "/";
       }
-      var activePro = " ";
 
       let path = prop.path.replace(/:[a-z]+/g, "");
       if (!prop.parent) {

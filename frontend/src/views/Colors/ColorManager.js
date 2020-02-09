@@ -4,7 +4,7 @@ import colors from "../../assets/store/colors.json";
 import { AutoGrid } from "../../components/Grid/AutoGrid.js";
 import { optionalFn } from "../../core/helpers.js";
 
-export function ColorManager({}) {
+export function ColorManager() {
   let pickers = [];
   for (let item in colors) {
     pickers.push(<ColorPicker title={item} color={colors[item]} />);
@@ -28,7 +28,7 @@ export function ColorPicker({ title, color, onChange }) {
           <strong
             key={colorSelection}
             style={{
-              color: colorSelection.hex,
+              color: colorSelection.hex || color,
               textTransform: "full-width capitalize",
               padding: "12px"
             }}

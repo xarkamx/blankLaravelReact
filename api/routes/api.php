@@ -26,3 +26,4 @@ Route::group([
     Route::post('me', 'Auth\JWTController@me')->middleware('validate:1');
     Route::get('me', 'Auth\JWTController@me')->middleware('validate:1');
 });
+Route::apiResource("colors","Style\ColorsController");

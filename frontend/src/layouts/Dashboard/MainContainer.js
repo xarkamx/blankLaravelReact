@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { MainMenu } from "../../components/Sidebar/MainMenu";
 import { BurguerButton } from "../../components/CustomButtons/BurguerButton";
 import Header from "../../components/Header/Header";
+/* eslint eqeqeq: 0*/
 export function MainContainer({ routes, children, path, ...rest }) {
   const [placement, setPlacement] = useState("");
   const frontClass = `frontContainer ${placement}`;

@@ -1,6 +1,7 @@
 import React from "react";
 import "./modal.scss";
 import { optionalFn } from "../../core/helpers";
+/*eslint eqeqeq:0*/
 export function FullScreenModal({ children, open, onClose, ...rest }) {
   if (open)
     return (

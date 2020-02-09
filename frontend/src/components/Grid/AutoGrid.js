@@ -1,6 +1,7 @@
 import React from "react";
 import GridContainer from "components/Grid/GridContainer";
 import GridItem from "components/Grid/GridItem.jsx";
+/* eslint eqeqeq:0 */
 export function AutoGrid({ children, arrangement = 3 }) {
   const format = (items, arrangement) => {
     if (Array.isArray(items)) {

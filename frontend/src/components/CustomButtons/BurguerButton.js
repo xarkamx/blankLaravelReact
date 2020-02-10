@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./scss/burguerButton.scss";
 import { optionalFn } from "../../core/helpers";
+import { shadowColor } from "../../assets/jss/material-dashboard-react";
 export function BurguerButton(props) {
   const { style = {}, onClick } = props;
   const [status, setStatus] = useState(false);
@@ -16,9 +17,9 @@ export function BurguerButton(props) {
         setStatus(!status);
       }}
     >
-      <div />
-      <div />
-      <div />
+      <div style={{ background: shadowColor }} />
+      <div style={{ background: shadowColor }} />
+      <div style={{ background: shadowColor }} />
     </div>
   );
 }

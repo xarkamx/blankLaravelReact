@@ -1,13 +1,23 @@
 import React, { useState } from "react";
 import { SketchPicker } from "react-color";
-import colors from "../../assets/store/colors.json";
 import { AutoGrid } from "../../components/Grid/AutoGrid.js";
 import { optionalFn } from "../../core/helpers.js";
+import { ColorsUtilities } from "../../utils/ColorsUtilities.js";
 
 export function ColorManager() {
+  let colorsUtils = new ColorsUtilities();
+  let colors = colorsUtils.getLocalColors();
   let pickers = [];
   for (let item in colors) {
-    pickers.push(<ColorPicker title={item} color={colors[item]} />);
+    pickers.push(
+      <ColorPicker
+        title={item}
+        color={colors[item]}
+        onChange={ev => {
+          colorsUtils.setColors({ colorName: item, hex: ev.hex });
+        }}
+      />
+    );
   }
   return <AutoGrid arrangement={4}>{pickers}</AutoGrid>;
 }

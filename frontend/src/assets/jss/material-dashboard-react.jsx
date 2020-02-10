@@ -18,7 +18,7 @@
 // // // Variables - Styles that are used on more than one component
 // #############################
 
-import colors from "../store/colors.json";
+import { ColorsUtilities } from "../../utils/ColorsUtilities.js";
 const drawerWidth = 260;
 
 const transition = {
@@ -52,7 +52,7 @@ const defaultFont = {
   fontWeight: `300`,
   lineHeight: `1.5em`
 };
-
+const colorsCollection = new ColorsUtilities().getLocalColors();
 const {
   primaryColor,
   secondaryColor,
@@ -60,9 +60,12 @@ const {
   dangerColor,
   successColor,
   infoColor,
+  fontColor,
   roseColor,
-  grayColor
-} = colors;
+  grayColor,
+  linkColor,
+  shadowColor
+} = colorsCollection;
 
 const primaryBoxShadow = {
   boxShadow: `0 12px 20px -10px rgba(156, 39, 176, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(156, 39, 176, 0.2)`
@@ -201,5 +204,8 @@ export {
   title,
   cardTitle,
   cardSubtitle,
-  cardLink
+  cardLink,
+  shadowColor,
+  linkColor,
+  fontColor
 };

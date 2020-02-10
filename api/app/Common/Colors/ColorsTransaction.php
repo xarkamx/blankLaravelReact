@@ -43,12 +43,21 @@ class ColorsTransaction extends BaseTransaction implements iTransaction
     public function create(array $data)
     {
         $model = new Colors();
+        $content = $model->where(["colorName" => $data["colorName"]])->first();
+        if ($content) {
+            return $this->update($content->id, $data);
+        }
         $model = $this->setModelData($model, $data);
+
         $this->validator->validate($model);
         $model->save();
         return $this->last($model);
     }
     public function update(Int $id, array $data)
     {
+
+        $model = new Colors();
+        $this->change($model, $data, ["id" => $id]);
+        return $model->find($id);
     }
 }

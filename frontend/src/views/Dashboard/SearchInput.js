@@ -9,6 +9,7 @@ import { NavLink } from "react-router-dom";
 import { FullScreenModal } from "./../../components/CustomModal/FullScreenModal";
 import { SimpleInput } from "./../../components/CustomInput/SimpleInput";
 import { FaButton } from "./../../components/CustomButtons/FaButton";
+import { grayColor } from "../../assets/jss/material-dashboard-react";
 
 export function SearchInput() {
   const [open, toggle] = useState(false);
@@ -44,6 +45,7 @@ export function SearchInput() {
     <>
       <FaButton
         icon={"search"}
+        style={{ color: grayColor }}
         onClick={() => {
           toggle(true);
         }}

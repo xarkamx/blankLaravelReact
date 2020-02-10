@@ -5,6 +5,9 @@
   "dangerColor": "#f44336",
   "successColor": "#4caf50",
   "infoColor": "#00acc1",
-  "roseColor": "#e91e63",
-  "grayColor": "#999999"
+  "grayColor": "#999999",
+  "fontColor": "#333333",
+  "roseColor": "#998800",
+  "linkColor": "#e91e63",
+  "shadowColor": "#cccccc"
 }

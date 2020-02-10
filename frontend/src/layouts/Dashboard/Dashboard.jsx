@@ -17,6 +17,7 @@ import { MainMenu } from "./../../components/Sidebar/MainMenu";
 import { BurguerButton } from "../../components/CustomButtons/BurguerButton";
 import { MainContainer } from "./MainContainer";
 import Header from "../../components/Header/Header";
+import { ColorsUtilities } from "./../../utils/ColorsUtilities";
 
 class App extends React.Component {
   constructor(props) {
@@ -60,6 +61,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    new ColorsUtilities().getRemoteColors();
     if (navigator.platform.indexOf("Win") > -1) {
     }
     window.addEventListener("resize", this.resizeFunction);

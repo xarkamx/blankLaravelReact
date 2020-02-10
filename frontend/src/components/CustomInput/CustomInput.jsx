@@ -60,12 +60,10 @@ export class CustomInput extends React.Component {
       [classes.marginTop]: labelText === undefined
     });
     return (
-      <main>
+      <>
         <FormControl
           {...formControlProps}
-          className={`${formControlProps.className}  ${classes.formControl} ${
-            this.props.className
-          }`}
+          className={`${formControlProps.className}  ${classes.formControl} ${this.props.className}`}
         >
           {labelText !== undefined ? (
             <InputLabel
@@ -99,7 +97,7 @@ export class CustomInput extends React.Component {
             />
           ) : null}
         </FormControl>
-      </main>
+      </>
     );
   }
 }

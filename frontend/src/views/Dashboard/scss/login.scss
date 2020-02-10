@@ -1,0 +1,105 @@
+.login {
+  width: auto;
+  margin: auto;
+  display: block;
+  width: 60vw;
+  height: 80vh;
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 9px;
+
+  button {
+    width: 100%;
+    i span {
+      margin: 15px;
+    }
+  }
+  form {
+    overflow: hidden;
+    margin: 27% 10%;
+  }
+  .avatar {
+    background: white;
+    text-shadow: inset 1px 1px 2px #007777;
+  }
+  .paper {
+    border-radius: 0;
+    box-shadow: -8px 5px 12px #111;
+    position: relative;
+    padding: 20px;
+    background: linear-gradient(
+      331deg,
+      rgba(243, 243, 255, 1) 0%,
+      rgba(228, 228, 228, 1) 35%,
+      rgba(255, 255, 255, 1) 100%
+    );
+    height: 100%;
+    width: 70%;
+    float: right;
+    display: grid;
+    align-content: center;
+  }
+  input {
+    text-shadow: 1px 1px 1px black;
+    text-align: center;
+  }
+  label {
+    color: black !important;
+    text-shadow: 1px 1px 2px #e1f1f1;
+    font-size: 1rem;
+  }
+  .avatar {
+    margin: 0 auto;
+    text-align: center;
+  }
+  h1 {
+    text-align: center;
+  }
+  .submit {
+    display: block;
+    margin: auto;
+    border-radius: 9px;
+  }
+  @media only screen and (max-width: 1024px) {
+    font-size: 10px;
+    width: 99%;
+    height: 100%;
+    .paper {
+      align-content: flex-start;
+      width: 100%;
+      max-height: 100%;
+      display: grid;
+      grid-template-rows: 10% 10% 79%;
+    }
+    input {
+      font-size: 1rem;
+    }
+    form {
+      display: grid;
+      height: fit-content;
+      margin: 10px;
+    }
+  }
+}
+
+.loginBackground:before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  content: "";
+  background: linear-gradient(45deg, #fff, #eee);
+  filter: blur(4px);
+  background-size: cover;
+  background-position: center;
+}
+.loginBackground {
+  height: 100vh;
+}

@@ -12,12 +12,10 @@ import { DashboardRoutes } from "routes/dashboard.jsx";
 
 import dashboardStyle from "assets/jss/material-dashboard-react/layouts/dashboardStyle.jsx";
 import "assets/scss/main.scss";
-
-import { MainMenu } from "./../../components/Sidebar/MainMenu";
-import { BurguerButton } from "../../components/CustomButtons/BurguerButton";
 import { MainContainer } from "./MainContainer";
-import Header from "../../components/Header/Header";
 import { ColorsUtilities } from "./../../utils/ColorsUtilities";
+import { LoginManager } from "../../utils/LoginManager";
+import { Login } from "../../views/Dashboard/Login";
 
 class App extends React.Component {
   constructor(props) {
@@ -28,7 +26,14 @@ class App extends React.Component {
     };
     this.resizeFunction = this.resizeFunction.bind(this);
   }
-
+  async setLoginStatus() {
+    const loginManager = new LoginManager();
+    if (loginManager.isLogged()) {
+      this.setState({ logged: true });
+    }
+    await loginManager.onLoginExpire();
+    this.setState({ logged: false });
+  }
   handleRoutes = () => {
     const dashboardRoutes = new DashboardRoutes().get();
     return (
@@ -62,6 +67,7 @@ class App extends React.Component {
 
   componentDidMount() {
     new ColorsUtilities().getRemoteColors();
+    this.setLoginStatus();
     if (navigator.platform.indexOf("Win") > -1) {
     }
     window.addEventListener("resize", this.resizeFunction);
@@ -80,7 +86,9 @@ class App extends React.Component {
 
   render() {
     const { classes, ...rest } = this.props;
-
+    console.log(this.state.logged);
+    if (!this.state.logged)
+      return <Login onLogin={this.setLoginStatus.bind(this)} />;
     const routes = new DashboardRoutes().get();
     return (
       <div>

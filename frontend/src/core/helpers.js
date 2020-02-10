@@ -455,3 +455,10 @@ export function secuence(limit, iteration = null) {
 export function numberPadStart(places, number) {
   return String(number).padStart(places, "0");
 }
+/**
+ * obtiene la version actual del archivo
+ * @return number
+ */
+export function currentVersion() {
+  return Math.round(new Date(document.lastModified).getTime() / 1000);
+}

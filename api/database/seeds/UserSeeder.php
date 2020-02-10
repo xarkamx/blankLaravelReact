@@ -8,7 +8,6 @@ use App\Common\Profiles\ProfilesRepo;
 use App\Common\Profiles\ProfilesTransaction;
 use App\Common\Users\UsersTransaction;
 use Seeds\BaseSeeder;
-use Seeds\PermissionsSeeder;
 use function GuzzleHttp\json_decode;
 use App\Models\Info;
 
@@ -23,7 +22,7 @@ class UserSeeder extends BaseSeeder
     {
         $transaction = new UsersTransaction(new DBValidator);
 
-        $this->csvToDatabase();
+        //$this->csvToDatabase();
         $data = [
             'name' => "admin",
             'email' => "admin@admin.com",
@@ -41,7 +40,7 @@ class UserSeeder extends BaseSeeder
             ["name" => "seguridad"],
             ["name" => "residentes"],
         ];
-        
+
         $this->bulkSeeder($profileData, $profile);
         set_time_limit(150);
         $this->call(PermissionsSeeder::class);
@@ -89,11 +88,12 @@ class UserSeeder extends BaseSeeder
         $end = round(microtime(true) * 1000);
         $this->log($end - $start);
     }
-    public function setUsersBasedOnPerson(){
+    public function setUsersBasedOnPerson()
+    {
         $model = new Info();
         $persons = $model->get()->toArray();
         $userData = [];
-        foreach($persons as $person) {
+        foreach ($persons as $person) {
             $firstMail = json_decode($person['mails'])[0];
             $userData[$person['fullname']] = [
                 'name' => preg_split('/@/', $firstMail)[0] ?? "desconocido",

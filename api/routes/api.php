@@ -39,4 +39,5 @@ Route::group([
 Route::apiResource('profiles', 'Info\Profiles')->middleware('auth');
 Route::apiResource('permissions', 'Info\Permissions')->middleware('auth');
 Route::apiResource('user', 'Info\UsersController')->middleware('auth');
+Route::get('clients/paginated', 'Info\Persons@paginated')->middleware('auth');
 Route::apiResource('clients', 'Info\Persons')->middleware('auth');

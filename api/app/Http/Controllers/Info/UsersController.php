@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Common\Users\UsersTransaction;
 use App\Common\Core\Validator\DBValidator;
 use App\Common\Users\UsersRepo;
+use App\Models\User;
 
 class UsersController extends Controller
 {
@@ -37,5 +38,10 @@ class UsersController extends Controller
     {
         $houses = new UsersTransaction(new DBValidator);
         return $houses->update($id, $request->toArray());
+    }
+    public function destroy($id)
+    {
+        (new User())->find($id)->delete();
+        return [true];
     }
 }

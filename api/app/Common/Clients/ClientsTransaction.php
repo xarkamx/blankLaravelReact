@@ -8,6 +8,7 @@ use App\Models\Clients;
 use App\Common\Core\Classes\BaseTransaction;
 use App\Common\Core\Interfaces\iValidator;
 use App\Helpers\Tools;
+use Exception;
 use Symfony\Component\HttpKernel\Client;
 
 class ClientsTransaction extends BaseTransaction implements iTransaction
@@ -37,6 +38,13 @@ class ClientsTransaction extends BaseTransaction implements iTransaction
     {
         $model = new Clients();
         $data = $this->get($model, $filter, $search, $orderBy, $orderType);
+        return $data->get();
+    }
+    public function paginated(array $filter, $search = "", $orderBy = "id", $orderType = "asc", $perPage = 8)
+    {
+        $model = new Clients();
+        $data = $this->get($model, $filter, $search, $orderBy, $orderType);
+        return $data->paginate($perPage);
     }
     public function erase($id)
     {
@@ -53,7 +61,18 @@ class ClientsTransaction extends BaseTransaction implements iTransaction
     }
     public function update(Int $id, array $data)
     {
+        $model = new Clients();
+        if (isset($data['photo'])) {
+            $this->_killPreviusPhoto($id);
+            $data['photo'] = $this->__setPhoto($data['photo']);
+        }
+        if (isset($data['hash'])) {
+            $data["hash"] = uniqid();
+        }
+        $this->change($model, $data, ['id' => $id]);
+        return $model->find($id);
     }
+
     private function __setPhoto($photo)
     {
         $path = "/uploads/userDocs/" . uniqid();
@@ -68,5 +87,15 @@ class ClientsTransaction extends BaseTransaction implements iTransaction
             $name
         );
         return str_replace("/" . public_path(), '', $path);
+    }
+    private function _killPreviusPhoto($id)
+    {
+        $client = (new Clients())->find($id);
+        if ($client->photo != "") {
+            try {
+                unlink(public_path() . $client->photo);
+            } catch (\Exception $e) {
+            }
+        }
     }
 }

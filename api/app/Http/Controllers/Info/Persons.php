@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Info;
 use App\Common\Clients\ClientsTransaction;
 use App\Common\Core\Validator\DBValidator;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\InfoCollection;
 use App\Http\Resources\InfoResource;
 use App\Models\Clients;
 use Illuminate\Http\Request;
@@ -25,10 +26,17 @@ class Persons extends Controller
         $transaction = new ClientsTransaction(new DBValidator);
         return $transaction->index($request->toArray(), $request->search);
     }
-    public function paginated(Request $request, $perPage)
+    public function paginated(Request $request)
     {
         $transaction = new ClientsTransaction(new DBValidator);
-        return $transaction->paginated($request->toArray(), $request->search, $request->orderBy, $request->orderType);
+        return new InfoCollection($transaction
+            ->paginated(
+                [],
+                $request->search,
+                $request->orderBy,
+                $request->orderType,
+                $request->perPage
+            ));
     }
     /**
      * Store a newly created resource in storage.
@@ -64,7 +72,11 @@ class Persons extends Controller
     public function update(Request $request, $id)
     {
         $transaction = new ClientsTransaction(new DBValidator);
-        return $transaction->update($id, $request->toArray());
+        return new InfoResource($transaction
+            ->update(
+                $id,
+                $request->toArray()
+            ));
     }
 
     /**
@@ -75,6 +87,8 @@ class Persons extends Controller
      */
     public function destroy($id)
     {
-        //
+        $client = new Clients();
+        $client->find($id)->delete();
+        return [true];
     }
 }

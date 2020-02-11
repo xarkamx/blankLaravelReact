@@ -15,17 +15,15 @@ class InfoResource extends JsonResource
     public function toArray($request)
     {
 
-        $phot = ($this->photo!="")? \Request::root() . $this->photo:"";
+        $phot = ($this->photo != "") ? \Request::root() . $this->photo : "";
         return [
             "id" => $this->id,
             "fullname" => $this->fullname,
             "phones" => $this->phones,
-            "mails" => $this->mails,
-            "type" => $this->type,
+            "email" => $this->email,
             "hasAccess" => $this->hasAccess,
             "photo" => $phot,
             "hash" => $this->hash,
-            "limitedAccess" => $this->limitedAccess
         ];
     }
 }

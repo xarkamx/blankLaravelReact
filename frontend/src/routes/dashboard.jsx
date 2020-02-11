@@ -6,6 +6,7 @@ import { Sandbox } from "./../views/Sandbox/Sandbox";
 import { ColorManager } from "./../views/Colors/ColorManager";
 import { ProfileContainer } from "./../views/Profiles/ProfileContainer";
 import { UsersContainer } from "./../views/Users/UsersContainer";
+import { ClientContainer } from "./../views/Clients/ClientContainer";
 // mis views
 
 export class DashboardRoutes {
@@ -40,6 +41,13 @@ export class DashboardRoutes {
       navbarName: "usuarios",
       icon: "users",
       component: UsersContainer
+    },
+    {
+      path: "/clients",
+      sidebarName: "Clientes",
+      navbarName: "Clientes",
+      icon: "users",
+      component: ClientContainer
     },
     {
       path: "/config/color",

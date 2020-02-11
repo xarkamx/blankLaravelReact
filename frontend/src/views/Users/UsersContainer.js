@@ -6,12 +6,14 @@ import {
   dangerColor
 } from "assets/jss/material-dashboard-react.jsx";
 import { UsersForm } from "./UsersForm";
+import { AuthFetch } from "./../../utils/AuthFetch";
 export class UsersContainer extends Component {
-  state = { id: "", open: false };
+  state = { id: "", open: false, key: "" };
   render() {
-    const { id, open } = this.state;
+    const { id, open, key } = this.state;
     return (
       <AsyncDataTable
+        key={key}
         path={"api/user"}
         title={"Lista de usuarios"}
         subtitle={"permite ver,editar y eliminar usuarios"}
@@ -45,10 +47,6 @@ export class UsersContainer extends Component {
                 onClick={() => {
                   this.setState({ id: item.id, open: true });
                 }}
-              />
-              <FaButton
-                icon="trash"
-                style={{ color: dangerColor, fontSize: "12px" }}
               />
             </>
           ];

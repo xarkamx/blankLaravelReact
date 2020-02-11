@@ -69,13 +69,14 @@ export class UsersForm extends React.Component {
     }
   }
   render() {
-    let personID = this.props.personID || "";
+    let personID = this.props.id || "";
     const { email, mailError, password, profileID } = this.state;
+    console.log(profileID);
     return (
       <AjaxForm
-        path={`/api/persons/${personID}/user`}
+        path={`/api/user/${personID}`}
         autoload={personID !== ""}
-        method="post"
+        method={personID === "" ? "post" : "put"}
         willSubmit={this._willSubmit.bind(this)}
         submitted={this._afterSubmit.bind(this)}
         getter={this._fillForm}
@@ -85,6 +86,7 @@ export class UsersForm extends React.Component {
             <PanelContainer title="User" subtitle="Fill the Form">
               <GridItem xs={12} sm={12} md={12}>
                 <ProfileSelector
+                  key={profileID}
                   value={profileID}
                   onChange={ev => {
                     this.setState({ profileID: ev.value });

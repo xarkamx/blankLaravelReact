@@ -14,11 +14,28 @@ class UsersController extends Controller
     {
         $users = new UsersTransaction(new DBValidator);
         $search = $request->search;
-        return $users->index([], $search);
+        $perPage = $request->perPage;
+        return $users->index(["perPage" => $perPage], $search, $request->orderBy, $request->orderType);
     }
     public function show(Request $request, $personID)
     {
         $users = new UsersRepo($personID);
         return $users->get();
+    }
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $houses = new UsersTransaction(new DBValidator);
+        return $houses->create($request->toArray());
+    }
+    public function update(Request $request, $id)
+    {
+        $houses = new UsersTransaction(new DBValidator);
+        return $houses->update($id, $request->toArray());
     }
 }

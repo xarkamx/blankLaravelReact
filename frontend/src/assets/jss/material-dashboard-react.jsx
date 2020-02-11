@@ -207,5 +207,6 @@ export {
   cardLink,
   shadowColor,
   linkColor,
-  fontColor
+  fontColor,
+  secondaryColor
 };

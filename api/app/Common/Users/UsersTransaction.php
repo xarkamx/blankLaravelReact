@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Common\Users;
 
 use App\Common\Core\Classes\BaseTransaction;
@@ -6,6 +7,7 @@ use App\Common\Core\Interfaces\iTransaction;
 use App\Common\Core\Interfaces\iValidator;
 use App\Http\Resources\User as AppUser;
 use App\Http\Resources\UserCollection as Collection;
+use App\Http\Resources\UserCollection;
 use App\Models\User;
 
 /**
@@ -23,11 +25,12 @@ class UsersTransaction extends BaseTransaction implements iTransaction
         $this->validator = new $validator();
     }
     public function validateIfExist($filter)
-    {}
-    public function show($personID = null)
+    {
+    }
+    public function show($id = null)
     {
         $model = new User();
-        $user = $model->where('personID', $personID)->first();
+        $user = $model->where('id', $id)->first();
         return new AppUser($user);
     }
     /**
@@ -42,11 +45,21 @@ class UsersTransaction extends BaseTransaction implements iTransaction
     public function index(array $filter, $search = "", $orderBy = "id", $orderType = "asc")
     {
         $model = new User();
+        $perPage = $filter['perPage'];
+        unset($filter['perPage']);
         $users = $this->get($model, $filter, $search, $orderBy, $orderType);
-        return new Collection($users->get());
+        $data = $users
+            ->selectRaw("users.*,profiles.name as profileName")
+            ->leftJoin("profiles", "profileID", "profiles.id");
+        if ($orderBy == "profileName") {
+            $data = $data->orderBy("profiles.name", $orderType);
+        }
+        return new UserCollection($data->paginate($perPage));
     }
+
     public function erase($id)
-    {}
+    {
+    }
     /**
      * create genera un nuevo usuario en base al contenido de $data
      *
@@ -61,20 +74,26 @@ class UsersTransaction extends BaseTransaction implements iTransaction
         $data['name'] = $data['name'] ?? $name[0];
         $model = new User();
         $userModel = $model
-            ->where(['email' => optional($data)['email']])
-            ->orWhere(['personID' => $data['personID']]);
+            ->where(['email' => optional($data)['email']]);
         $exist = $userModel->exists();
         if ($exist) {
             $id = $userModel->get()[0]->id;
-            $this->change($model, $data, ['id' => $id]);
+            $this->update($id, $data);
         } else {
             $data['profileID'] = $data['profileID'] ?? 0;
             $element = $this->setModelData($model, $data);
             $this->validator->validate($element);
+            $element->password = bcrypt($element->password);
             $element->save();
         }
         return $this->last($model);
     }
     public function update(Int $id, array $data)
-    {}
+    {
+        $model = (new User());
+        if (isset($data['password']))
+            $data['password'] = bcrypt($data['password']);
+        $this->change($model, $data, ['id' => $id]);
+        return $model->find($id);
+    }
 }

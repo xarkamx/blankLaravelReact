@@ -30,6 +30,7 @@ export class ProfileContainer extends Component {
   async loadPermissions() {
     const fetch = new AuthFetch(`api/permissions`);
     const response = await fetch.get();
+    console.log(response.data);
     this.setState({ permissions: response.data });
   }
   /**
@@ -42,6 +43,7 @@ export class ProfileContainer extends Component {
     const { id } = profile;
     const helpers = new Helpers();
     const profilePermissions = profile.permissions;
+
     return permissions.map((item, key) => {
       const find = helpers.searchByKey(profilePermissions, "name", item.name);
       let checked = find.length !== 0;

@@ -71,6 +71,12 @@ class BaseTransaction
         }
         return $cols;
     }
+    public function isColumnValid($model, $key)
+    {
+        $columns = \Schema::getColumnListing($model->getTable());
+        $col = array_search($key, $columns);
+        return $col != false;
+    }
     /**
      * Obtiene y filtra los elementos del modelo.
      *
@@ -87,6 +93,7 @@ class BaseTransaction
         unset($filter['search'], $filter['page']);
         $query = $this->generateSearchQuery($model, $search);
         $this->columnsExistOnModel($model, $filter);
+        $orderBy = $this->isColumnValid($model, $orderBy) ? $orderBy : "id";
         $consult = $model->where($filter);
         if ($query) {
             $consult = $consult->whereRaw($query);

@@ -1,14 +1,5 @@
 {
-    "name": [
-        "required"
-    ],
-    "email": [
-        "required"
-    ],
-    "password": [
-        "required"
-    ],
-    "personID":[
-        "required"
-    ]
+    "name": ["required"],
+    "email": ["required"],
+    "password": ["required"]
 }

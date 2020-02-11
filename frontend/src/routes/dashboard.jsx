@@ -3,6 +3,8 @@ import Dashboard from "@material-ui/icons/Dashboard";
 // core components/views
 import DashboardPage from "views/Dashboard/Dashboard.jsx";
 import { Sandbox } from "./../views/Sandbox/Sandbox";
+import { ColorManager } from "./../views/Colors/ColorManager";
+import { ProfileContainer } from "./../views/Profiles/ProfileContainer";
 // mis views
 
 export class DashboardRoutes {
@@ -30,6 +32,20 @@ export class DashboardRoutes {
       navbarName: "sandbox",
       icon: "home",
       component: Sandbox
+    },
+    {
+      path: "/config/color",
+      sidebarName: "Colores",
+      navbarName: "Colores",
+      icon: "brush",
+      component: ColorManager
+    },
+    {
+      path: "/config/permissions",
+      sidebarName: "Perfiles",
+      navbarName: "Perfiles",
+      icon: "user-cog",
+      component: ProfileContainer
     }
   ];
 }

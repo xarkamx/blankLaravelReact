@@ -5,6 +5,7 @@ import DashboardPage from "views/Dashboard/Dashboard.jsx";
 import { Sandbox } from "./../views/Sandbox/Sandbox";
 import { ColorManager } from "./../views/Colors/ColorManager";
 import { ProfileContainer } from "./../views/Profiles/ProfileContainer";
+import { UsersContainer } from "./../views/Users/UsersContainer";
 // mis views
 
 export class DashboardRoutes {
@@ -32,6 +33,13 @@ export class DashboardRoutes {
       navbarName: "sandbox",
       icon: "home",
       component: Sandbox
+    },
+    {
+      path: "/users",
+      sidebarName: "usuarios",
+      navbarName: "usuarios",
+      icon: "users",
+      component: UsersContainer
     },
     {
       path: "/config/color",

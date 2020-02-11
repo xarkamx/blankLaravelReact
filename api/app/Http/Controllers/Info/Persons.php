@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Info;
 
+use App\Common\Clients\ClientsTransaction;
 use App\Common\Core\Validator\DBValidator;
-use App\Common\Info\InfoTransaction;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\InfoResource;
-use App\Models\Info;
+use App\Models\Clients;
 use Illuminate\Http\Request;
 
 class Persons extends Controller
@@ -22,12 +22,12 @@ class Persons extends Controller
      */
     public function index(Request $request)
     {
-        $transaction = new InfoTransaction(new DBValidator);
+        $transaction = new ClientsTransaction(new DBValidator);
         return $transaction->index($request->toArray(), $request->search);
     }
     public function paginated(Request $request, $perPage)
     {
-        $transaction = new InfoTransaction(new DBValidator);
+        $transaction = new ClientsTransaction(new DBValidator);
         return $transaction->paginated($request->toArray(), $request->search, $request->orderBy, $request->orderType);
     }
     /**
@@ -38,7 +38,7 @@ class Persons extends Controller
      */
     public function store(Request $request)
     {
-        $transaction = new InfoTransaction(new DBValidator);
+        $transaction = new ClientsTransaction(new DBValidator);
         return $transaction->create($request->toArray());
     }
 
@@ -50,7 +50,7 @@ class Persons extends Controller
      */
     public function show($id)
     {
-        $info = new Info();
+        $info = new Clients();
         return new InfoResource($info->find($id));
     }
 
@@ -63,7 +63,7 @@ class Persons extends Controller
      */
     public function update(Request $request, $id)
     {
-        $transaction = new InfoTransaction(new DBValidator);
+        $transaction = new ClientsTransaction(new DBValidator);
         return $transaction->update($id, $request->toArray());
     }
 

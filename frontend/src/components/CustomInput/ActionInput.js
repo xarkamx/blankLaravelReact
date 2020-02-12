@@ -6,7 +6,7 @@ import IconButton from "@material-ui/core/IconButton";
 import { optionalFn } from "../../core/helpers";
 
 /* eslint eqeqeq: 0*/
-export class ActiInput extends React.Component {
+export class act extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

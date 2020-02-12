@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { EventForm } from "./../Events/EventForm";
-import { EventContainer } from "../Events/EventContainer";
+import { AccessContainer } from "./../Access/AccessContainer";
 export function Sandbox() {
-  return <EventContainer />;
+  return <AccessContainer />;
 }

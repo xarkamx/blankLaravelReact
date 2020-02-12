@@ -24,7 +24,11 @@ class Persons extends Controller
     public function index(Request $request)
     {
         $transaction = new ClientsTransaction(new DBValidator);
-        return $transaction->index($request->toArray(), $request->search);
+        return new InfoCollection($transaction
+            ->index(
+                $request->toArray(),
+                $request->search
+            ));
     }
     public function paginated(Request $request)
     {

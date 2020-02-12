@@ -53,7 +53,7 @@ class ClientsTransaction extends BaseTransaction implements iTransaction
     {
         $model = new Clients();
         $data["hash"] = uniqid();
-        $data['photo'] = $this->__setPhoto($data['photo'], "/image/users/" . uniqid() . ".jpg");
+        $data['photo'] = $this->__setPhoto($data['photo'] ?? null, "/image/users/" . uniqid() . ".jpg");
         $data['hasAccess'] = true;
         $model = $this->setModelData($model, $data);
         $model->save();

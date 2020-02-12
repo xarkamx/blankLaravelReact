@@ -21,6 +21,8 @@ class EventsTransaction extends BaseTransaction implements iTransaction
     }
     public function show($id)
     {
+        $events = new Events();
+        return $events->find($id);
     }
     /**
      * Obtiene todos los elementos del objeto
@@ -55,5 +57,8 @@ class EventsTransaction extends BaseTransaction implements iTransaction
     }
     public function update(Int $id, array $data)
     {
+        $model = new Events();
+        $this->change($model, $data, ["id" => $id]);
+        return $model->find($id);
     }
 }

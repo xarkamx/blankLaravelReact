@@ -53,7 +53,9 @@ class EventsController extends Controller
      */
     public function show($id)
     {
-        //
+
+        $transaction = new EventsTransaction(new DBValidator);
+        return new EventsResource($transaction->show($id));
     }
 
     /**
@@ -65,7 +67,8 @@ class EventsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $transaction = new EventsTransaction(new DBValidator);
+        return new EventsResource($transaction->update($id, $request->toArray()));
     }
 
     /**

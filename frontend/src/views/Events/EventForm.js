@@ -13,7 +13,9 @@ export function EventForm({ id, onSave }) {
   const [name, setName] = useState("");
   const [startDate, setStartDate] = useState(validInputDate());
   const [endDate, setEndDate] = useState(validInputDate());
-  const [schedule, setSchedule] = useState("[10:00,11:00]");
+  const [schedule, setSchedule] = useState(
+    JSON.stringify({ since: "10:00", until: "11:00" })
+  );
 
   return (
     <AjaxForm
@@ -25,8 +27,17 @@ export function EventForm({ id, onSave }) {
         inputs.schedule = schedule;
         return inputs;
       }}
-      submitted={inputs => {}}
-      getter={inputs => {}}
+      submitted={inputs => {
+        optionalFn(onSave)(inputs);
+      }}
+      getter={inputs => {
+        inputs = inputs.data;
+        setName(inputs.name);
+        setStartDate(inputs.startDate);
+        setEndDate(inputs.endDate);
+        console.log(inputs.schedule);
+        setSchedule(inputs.schedule);
+      }}
     >
       <GridContainer>
         <GridItem xs={12} sm={12} md={12}>
@@ -68,7 +79,7 @@ export function EventForm({ id, onSave }) {
             <Schedule
               value={schedule}
               onChange={(since, until) => {
-                setSchedule(JSON.stringify([since, until]));
+                setSchedule(JSON.stringify({ since, until }));
               }}
             />
             <Button
@@ -86,9 +97,10 @@ export function EventForm({ id, onSave }) {
     </AjaxForm>
   );
 }
-export function Schedule({ onChange }) {
-  const [since, setSince] = useState("10:00");
-  const [until, setUntil] = useState("11:00");
+export function Schedule({ value, onChange }) {
+  value = JSON.parse(value);
+  const [since, setSince] = useState(value.since);
+  const [until, setUntil] = useState(value.until);
   const setSchedule = (since, until) => {
     const sinceTime = new Time(since);
     const untilTime = new Time(until);

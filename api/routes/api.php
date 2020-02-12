@@ -41,3 +41,5 @@ Route::apiResource('permissions', 'Info\Permissions')->middleware('auth');
 Route::apiResource('user', 'Info\UsersController')->middleware('auth');
 Route::get('clients/paginated', 'Info\Persons@paginated')->middleware('auth');
 Route::apiResource('clients', 'Info\Persons')->middleware('auth');
+Route::get('events/paginated', 'Events\EventsController@paginate')->middleware('auth');
+Route::apiResource('events', 'Events\EventsController')->middleware('auth');

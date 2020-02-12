@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { ClientForm } from "../Clients/ClientsForm";
-import { ClientContainer } from "./../Clients/ClientContainer";
+import { EventForm } from "./../Events/EventForm";
 export function Sandbox() {
-  return <ClientContainer />;
+  return <EventForm />;
 }

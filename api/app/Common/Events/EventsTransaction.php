@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Common\Events;
+
 use App\Common\Core\Interfaces\iTransaction;
 use App\Exceptions\TransactionException;
 use App\Models\Events;
@@ -15,9 +17,11 @@ class EventsTransaction extends BaseTransaction implements iTransaction
         $this->validator =  $validator;
     }
     public function validateIfExist($filter)
-    {}
+    {
+    }
     public function show($id)
-    {}
+    {
+    }
     /**
      * Obtiene todos los elementos del objeto
      *
@@ -27,15 +31,29 @@ class EventsTransaction extends BaseTransaction implements iTransaction
      * @param string $orderType
      * @return Model
      */
-    public function index(array $filter, $search = "", $orderBy = "id" , $orderType = "asc")
+    public function index(array $filter, $search = "", $orderBy = "id", $orderType = "asc")
     {
         $model = new Events();
-        $data = $this->get($model,$filter,$search,$orderBy,$orderType);
+        $data = $this->get($model, $filter, $search, $orderBy, $orderType);
+        return $data->paginate();
+    }
+    public function paginated(array $filter, $search = "", $orderBy = "id", $orderType = "asc", $perPage = 8)
+    {
+        $model = new Events();
+        $data = $this->get($model, $filter, $search, $orderBy, $orderType);
+        return $data->paginate($perPage);
     }
     public function erase($id)
-    {}
-    public function create(Array $data)
-    {}
-    public function update(Int $id,Array $data)
-    {}
+    {
+    }
+    public function create(array $data)
+    {
+        $model = new Events();
+        $model = $this->setModelData($model, $data);
+        $model->save();
+        return $this->last($model);
+    }
+    public function update(Int $id, array $data)
+    {
+    }
 }
